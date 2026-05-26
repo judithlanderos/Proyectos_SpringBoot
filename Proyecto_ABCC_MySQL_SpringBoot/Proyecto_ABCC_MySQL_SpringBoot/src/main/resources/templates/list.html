@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alumnos</title>
+</head>
+<body>
+    <h1>Lista de Alumnos</h1>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Num Control</th>
+                <th>Nombre</th>
+                <th>Primer Ap</th>
+                <th>Segundo Ap</th>
+                <th>Fecha Nac</th>
+                <th>Semestre</th>
+                <th>Carrera</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="alumno : ${alumnos}">
+                <td th:text="${alumno.id}"></td>
+                <td th:text="${alumno.num_Control}"></td>
+                <td th:text="${alumno.nombre}"></td>
+                <td th:text="${alumno.primer_Ap}"></td>
+                <td th:text="${alumno.segundo_Ap}"></td>
+                <td th:text="${alumno.fecha_Nac}"></td>
+                <td th:text="${alumno.semestre}"></td>
+                <td th:text="${alumno.carrera}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

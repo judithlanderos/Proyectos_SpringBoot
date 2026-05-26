@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios Escolares</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container my-2">
+        <h1>Lista de Alumnos</h1>
+
+        <a th:href="@{/nuevoAlumno}" class="btn btn-primary btn-sm mb-3">Agregar Alumno</a>
+
+        <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Num. Control</th>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Semestre</th>
+                    <th>Carrera</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="a : ${alumnos}">
+                    <td th:text="${a.num_Control}"></td>
+                    <td th:text="${a.nombre}"></td>
+                    <td th:text="${a.primer_Ap}"></td>
+                    <td th:text="${a.segundo_Ap}"></td>
+                    <td th:text="${a.semestre}"></td>
+                    <td th:text="${a.carrera}"></td>
+                    <td>
+                        <a th:href="@{/editar/{id}(id=${a.id})}" class="btn btn-primary">Editar</a>
+                        <a th:href="@{/eliminar/{id}(id=${a.id})}" class="btn btn-danger"
+                           onclick="return confirm('¿Seguro que deseas eliminar este alumno?')">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
