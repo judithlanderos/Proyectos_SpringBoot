@@ -56,7 +56,6 @@ public class AuthController {
 public String mostrarRegistro() {
     return "registro";
 }
-
 @PostMapping("/registro-form")
 public String procesarRegistro(@RequestParam String username,
                                 @RequestParam String password,
@@ -67,9 +66,11 @@ public String procesarRegistro(@RequestParam String username,
         usuario.setUsername(username);
         usuario.setPassword(password);
         usuario.setRol(rol);
+
         authService.registrar(usuario);
-        model.addAttribute("exito", "Usuario registrado correctamente");
-        return "registro";
+
+        return "redirect:https://proyectos-springboot.onrender.com";
+
     } catch (Exception e) {
         model.addAttribute("error", "Error: " + e.getMessage());
         return "registro";
