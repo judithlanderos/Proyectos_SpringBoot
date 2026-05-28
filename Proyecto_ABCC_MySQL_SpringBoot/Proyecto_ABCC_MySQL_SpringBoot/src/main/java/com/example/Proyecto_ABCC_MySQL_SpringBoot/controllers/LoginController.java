@@ -13,10 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.ui.Model;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 
 @Controller
@@ -50,6 +46,7 @@ public class LoginController {
             // Guardar token en cookie
             Cookie cookie = new Cookie("jwt", token);
             cookie.setHttpOnly(true);
+            cookie.setSecure(true);
             cookie.setPath("/");
             cookie.setMaxAge(86400);
             response.addCookie(cookie);
