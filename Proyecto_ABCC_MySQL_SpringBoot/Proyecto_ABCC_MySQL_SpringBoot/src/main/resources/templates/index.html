@@ -34,6 +34,7 @@
                     <td th:text="${a.semestre}"></td>
                     <td th:text="${a.carrera}"></td>
                     <td>
+                        <a th:href="@{/consultar/{id}(id=${a.id})}" class="btn btn-info">Consultar</a>
                         <a th:href="@{/editar/{id}(id=${a.id})}" class="btn btn-primary">Editar</a>
                         <a th:href="@{/eliminar/{id}(id=${a.id})}" class="btn btn-danger"
                            onclick="return confirm('¿Seguro que deseas eliminar este alumno?')">Eliminar</a>

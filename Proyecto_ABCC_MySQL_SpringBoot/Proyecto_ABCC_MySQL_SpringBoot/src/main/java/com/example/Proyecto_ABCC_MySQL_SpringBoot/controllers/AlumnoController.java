@@ -52,4 +52,13 @@ public class AlumnoController {
         alumnoService.deleteAlumnoById(id);
         return "redirect:/";
     }
+    @GetMapping("/consultar/{id}")
+    public String consultarAlumno(@PathVariable(value = "id") Long id,
+                              Model model) {
+
+        AlumnoModel alumno = alumnoService.getAlumnoById(id.intValue());
+        model.addAttribute("alumno", alumno);
+
+        return "consultarAlumno";
+    }
 }
